@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC
+        "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+    <!-- !!!! Driver Class Path  mvn mybatis-generator:generate
+ !!!! -->
+    <!--      <classPathEntry location="D:\jar\mysql-connector-java-5.1.46.jar"/> -->
+
+    <context id="context" targetRuntime="MyBatis3">
+
+        <property name="mergeable" value="false"></property>
+        <commentGenerator type="com.common.mybatis.MyCommentGenerator">
+        </commentGenerator>
+
+        <!-- !!!! Database Configurations !!!! -->
+        <jdbcConnection
+                driverClass="com.mysql.jdbc.Driver"
+                connectionURL="jdbc:mysql://localhost:3306/weidou"
+                userId="root"
+                password="">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!-- pojo生成路径 -->
+        <javaModelGenerator targetPackage="com.entity"
+                            targetProject="src/main/java">
+            <property name="enableSubPackages" value="false"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- mapper.xml生成路径 -->
+        <sqlMapGenerator targetPackage="mappings.generator" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="false"/>
+            <property name="mergeable" value="false"/>
+        </sqlMapGenerator>
+
+
+        <!-- mapper接口生成路径 -->
+        <javaClientGenerator targetPackage="com.dao.generator"
+                             targetProject="src/main/java" type="XMLMAPPER">
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+
+        <!-- 表配置 -->
+
+        <table tableName="stu" enableCountByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" enableUpdateByExample="false">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+            <!--<columnOverride column="content" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+            <!--<columnOverride column="param" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+        </table>
+    </context>
+</generatorConfiguration>
