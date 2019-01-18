@@ -51,13 +51,6 @@
 			<version>1.16.10</version>
 		</dependency>
 
-		<!-- gson -->
-		<dependency>
-			<groupId>com.google.code.gson</groupId>
-			<artifactId>gson</artifactId>
-			<version>2.4</version>
-		</dependency>
-
 		<!-- mybatis-generator -->
 		<dependency>
 			<groupId>org.mybatis.generator</groupId>

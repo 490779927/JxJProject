@@ -5,6 +5,7 @@ mybatis:
   type-aliases-package: com.entity
   mapper-locations: classpath:mapper/*.xml
 
+---
 #开发配置
 spring:
   profiles: dev
